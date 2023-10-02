@@ -1,12 +1,16 @@
 import Item from './components/Item'
+import StateBlock from './components/StateBlock'
 
 const App = () => {
   const name = 'Gonsalo'
   return (
     <>
-      <User name={name} />
-      <User name="Pedro" />
-      <User name="Marcelo" />
+      <div>
+        <User name={name} />
+        <User name="Pedro" />
+        <User name="Marcelo" />
+      </div>
+      <StateBlock />
     </>
   )
 }
