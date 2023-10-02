@@ -1,5 +1,7 @@
+import Item from './components/Item'
+
 const App = () => {
-  const name = <h3>Gonsalo</h3>
+  const name = 'Gonsalo'
   return (
     <>
       <User name={name} />
@@ -10,9 +12,21 @@ const App = () => {
 }
 
 const User = ({name}) => {
+  const isGreen = true
+  const languages = ['Python', 'Javascript', 'PHP']
   return (
     <div className="user">
       <h2>{name}</h2>
+      <h3 style={{color: "red"}}>This has color</h3>
+      {
+        isGreen ? <button>Green button</button> : ''
+      }
+      {
+        languages.map((language, key) => {
+          return <Item key={key} language={language} />
+        })
+      }
+      
     </div>
   )
 }
