@@ -1,9 +1,19 @@
-function App() {
-
+const App = () => {
+  const name = <h3>Gonsalo</h3>
   return (
     <>
-      <h2>hello</h2>
+      <User name={name} />
+      <User name="Pedro" />
+      <User name="Marcelo" />
     </>
+  )
+}
+
+const User = ({name}) => {
+  return (
+    <div className="user">
+      <h2>{name}</h2>
+    </div>
   )
 }
 
