@@ -3,13 +3,20 @@ import { Home } from './pages/Home'
 import { Menu } from './pages/Menu'
 import { Contact } from './pages/Contact'
 import { Navbar } from './Navbar'
-import { CounterProvider } from './CounterProvider'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const App = () => {
-
+  // in the round brackets you can specify some options. For example - how many seconds before refetch
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false // with this option window doesn't update if you change window - by default true
+      }
+    }
+  })
   return (
     <div className="App">
-      <CounterProvider>
+      <QueryClientProvider client={client}>
         <Router>
           <Navbar />
           <Routes>
@@ -19,7 +26,7 @@ const App = () => {
             <Route path="*" element={<h1> PAGE NOT FOUND</h1>} />
           </Routes>
         </Router>
-      </CounterProvider>
+      </QueryClientProvider>
     </div>
   )
 }
