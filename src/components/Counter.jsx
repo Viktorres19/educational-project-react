@@ -5,7 +5,7 @@ const Counter = () => {
   const { counter, setCounter } = useContext(CounterContext)
 
   const changeCounter = (value) => {
-    if (counter > -1 && counter < 11) {
+    if (counter + value > -1 && counter + value < 11) {
       setCounter((prevState) => prevState + value)
     }
   }
