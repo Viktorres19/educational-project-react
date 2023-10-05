@@ -1,25 +1,29 @@
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Contact } from './pages/Contact'
+import { Login } from './pages/Login'
+import { Provider } from 'react-redux'
+import { store } from './store'
 import './App.css'
-import { Person, Country } from './components/Person'
 
 function App() {
 
-  const getAge = (name: string): number => {
-    return 99
-  }
-
   return (
-    <>
-      <div className='App'>
-        <Person
-          name="Pedro"
-          email="pedro@gmail.com"
-          age={21}
-          isMarried={true}
-          friends={["jake", "jessica", "jerry"]}
-          country={Country.Portugal} //there is no Portugal and it will be underlined as a mistake
-        />
-      </div>
-    </>
+    <div className='App'>
+      <Provider store={store}>
+        <Router>
+          <Link to="/"> Home </Link>
+          <Link to="/login"> Login </Link>
+          <Link to="/contact"> Contact </Link>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Router>
+      </Provider>
+    </div>
   )
 }
 
