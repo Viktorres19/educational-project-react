@@ -1,11 +1,14 @@
-import { Form } from "../components/Form"
-
+import { Cat } from '../components/Cat'
+import Counter from '../components/Counter'
+import Toggler from '../components/Toggler'
 
 export const Home = () => {
 
   return (
     <div className="home">
-      <Form />
+      <Toggler />
+      <Cat />
+      <Counter />
     </div>
   )
 }
